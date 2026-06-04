@@ -1,0 +1,81 @@
+Con lo que hay en el repo, seguiría estos pasos:
+Crear el notebook final
+Usar como base el notebook más cercano: 03-DRNNs_series_temporales_con_embeddings (1).ipynb, porque ya trabaja con entradas heterogéneas y embeddings.
+
+Cargar y unir datos
+Leer:
+train.csv: ventas históricas, 1.001.599 filas, fechas de 2013-01-01 a 2015-07-17.
+test.csv: una fila por tienda para 2015-07-31, 1.115 tiendas.
+store.csv: atributos estáticos de tienda.
+Unir train/test con store.csv por Store.
+
+Definir objetivo y entradas
+Target: Sales.
+Entradas recomendadas:
+Endógena temporal: ventanas pasadas de Sales.
+Exógenas conocidas: DayOfWeek, Open, Promo, StateHoliday, SchoolHoliday, quizá Customers si se permite usarla.
+Variables estáticas de tienda: Store, StoreType, Assortment, CompetitionDistance, Promo2, etc.
+Variables derivadas de fecha: mes, día del mes, semana, distancia temporal a promociones/competencia.
+
+Preprocesado
+Ordenar por Store y Date.
+Tratar cierres: decidir si conservar Open=0, Sales=0 o entrenar solo con tiendas abiertas y luego forzar predicción 0 cuando Open=0.
+Rellenar nulos de store.csv: CompetitionDistance, fechas de competencia, Promo2Since..., PromoInterval.
+Codificar categóricas con embeddings: Store, StoreType, Assortment, StateHoliday, DayOfWeek, PromoInterval.
+Escalar numéricas: Sales, Customers, CompetitionDistance, variables temporales.
+
+Construir ventanas temporales
+Para cada tienda, crear ventanas de longitud, por ejemplo:
+lookback = 14, 28 o 56 días.
+Salida: ventas del día objetivo.
+La utilidad my_utils_series_temporales.py tiene funciones de enventanado, pero habrá que adaptarlas a múltiples tiendas.
+
+Separar train/validación/test temporal
+No mezclar aleatoriamente, porque es serie temporal.
+Una partición razonable:
+Entrenamiento: hasta mayo/junio de 2015.
+Validación: últimas semanas antes de 2015-07-17.
+Test final: test.csv, fecha 2015-07-31.
+
+Crear modelos base
+Comparar varias arquitecturas, porque el enunciado pide métricas de diferentes modelos:
+Baseline persistente: Sales(t) = Sales(t-7) o media por tienda/día de semana.
+Modelo 1: GRU/LSTM solo con Sales.
+Modelo 2: GRU/LSTM con Sales + exógenas temporales.
+Modelo 3: modelo funcional Keras con embeddings para tienda/categóricas + rama recurrente + variables numéricas.
+
+Arquitectura recomendada
+Modelo funcional:
+Rama recurrente para ventana temporal: Sales, Customers, Open, Promo, etc.
+Embeddings para Store, DayOfWeek, StoreType, Assortment, StateHoliday.
+Concatenar todo.
+Capas densas finales.
+Salida: Sales escalada o log1p(Sales).
+
+Entrenar y controlar sobreajuste
+ModelCheckpoint guardando mejor validación.
+EarlyStopping.
+Métricas: MSE, RMSE, MAE, R2.
+Gráficas de pérdida train/validación.
+
+Evaluar
+   Calcular:
+R2 en validación.
+RMSE/MAE.
+Comparación contra baselines.
+Tabla resumen por arquitectura.
+
+   Ojo: el PDF menciona “test de las 10 tiendas”, pero el test.csv local contiene las 1.115 tiendas en 2015-07-31. Conviene en el notebook explicar qué subconjunto se evalúa si el profesor ha indicado 10 tiendas concretas; si no, usar todas o seleccionar 10 de forma justificada.
+Generar predicción final
+   Crear una tabla con:Id
+Sales
+
+   Usar el formato de submission.csv.
+Escribir la reflexión final
+   Incluir:Qué entradas ayudaron más.
+Si los embeddings mejoraron el modelo.
+Riesgos: usar Customers puede ser discutible si en un caso real no se conoce antes.
+Limitaciones del test de un solo día.
+Qué se probaría con más tiempo.
+
+La ruta más sólida sería partir del notebook 03, adaptarlo de pasajeros a Rossmann y construir un modelo global para todas las tiendas con embeddings de tienda y variables categóricas. Ahí está justo el corazón de “entradas heterogéneas”.
