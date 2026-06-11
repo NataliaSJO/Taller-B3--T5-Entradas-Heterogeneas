@@ -39,3 +39,10 @@ Entradas_heterogeneas_venv/
 # Logs de ejecución (redundantes con los resultados guardados)
 stdout.log
 entrenamiento_nocturno/stdout.log
+
+# Datasets pesados
+dataset_completo_Rossmann-20260604T174330Z-3-001/
+
+# Documentos de lectura / enunciados pesados
+*.pdf
+
