@@ -1,0 +1,110 @@
+[2026-06-10 23:17:06 | +   0.0 min] === INICIO (ENTRENAMIENTO COMPLETO) | límite 7.5 h ===
+[2026-06-10 23:17:08 | +   0.0 min] datos preparados | train (1001599, 34) | cardinalidades {'StoreCode': 1115, 'DayOfWeekCode': 7, 'StateHolidayCode': 4, 'StoreTypeCode': 4, 'AssortmentCode': 3, 'PromoIntervalCode': 4}
+[2026-06-10 23:17:09 | +   0.0 min] ventanas: 948,504 (descartadas 7,380) | Xt 1.38 GB | 1s
+[2026-06-10 23:17:11 | +   0.1 min] corte 2015-06-05 | fit 746,946 | val 46,830
+[2026-06-10 23:17:11 | +   0.1 min] --- entrenando GRU128x64_CON | cfg={'rama': 'gru', 'capas_rnn': (128, 64), 'dim_emb_store': 32, 'usar_customers': True} ---
+[2026-06-10 23:18:18 | +   1.2 min]   [GRU128x64_CON] época 1: loss=1.3595 val_loss=0.1143 lr=1.0e-03
+[2026-06-10 23:24:30 | +   7.4 min]   [GRU128x64_CON] época 6: loss=0.1610 val_loss=0.0068 lr=1.0e-03
+[2026-06-10 23:30:56 | +  13.8 min]   [GRU128x64_CON] época 11: loss=0.0316 val_loss=0.0078 lr=1.0e-03
+[2026-06-10 23:37:15 | +  20.1 min]   [GRU128x64_CON] época 16: loss=0.0054 val_loss=0.0076 lr=1.0e-03
+[2026-06-10 23:43:30 | +  26.4 min]   [GRU128x64_CON] época 21: loss=0.0046 val_loss=0.0086 lr=1.0e-03
+[2026-06-10 23:49:20 | +  32.2 min]   [GRU128x64_CON] época 26: loss=0.0044 val_loss=0.0090 lr=5.0e-04
+[2026-06-10 23:55:05 | +  38.0 min]   [GRU128x64_CON] época 31: loss=0.0039 val_loss=0.0085 lr=5.0e-04
+[2026-06-11 00:01:06 | +  44.0 min]   [GRU128x64_CON] época 36: loss=0.0038 val_loss=0.0074 lr=5.0e-04
+[2026-06-11 00:07:24 | +  50.3 min]   [GRU128x64_CON] época 41: loss=0.0038 val_loss=0.0075 lr=5.0e-04
+[2026-06-11 00:13:27 | +  56.3 min]   [GRU128x64_CON] época 46: loss=0.0036 val_loss=0.0074 lr=2.5e-04
+[2026-06-11 00:19:30 | +  62.4 min]   [GRU128x64_CON] época 51: loss=0.0035 val_loss=0.0074 lr=2.5e-04
+[2026-06-11 00:25:12 | +  68.1 min]   [GRU128x64_CON] época 56: loss=0.0035 val_loss=0.0075 lr=2.5e-04
+[2026-06-11 00:29:40 | +  72.6 min]   [GRU128x64_CON] época 60: loss=0.0035 val_loss=0.0074 lr=2.5e-04
+[2026-06-11 00:29:41 | +  72.6 min]   ✔ GRU128x64_CON: R2_total=0.9805 R2_abiertas=0.9662 | 60 épocas | 72.5 min
+[2026-06-11 00:29:41 | +  72.6 min] --- entrenando GRU128x64_SIN | cfg={'rama': 'gru', 'capas_rnn': (128, 64), 'dim_emb_store': 32, 'usar_customers': False} ---
+[2026-06-11 00:30:50 | +  73.7 min]   [GRU128x64_SIN] época 1: loss=1.3969 val_loss=0.0908 lr=1.0e-03
+[2026-06-11 00:36:24 | +  79.3 min]   [GRU128x64_SIN] época 6: loss=0.1835 val_loss=0.0183 lr=1.0e-03
+[2026-06-11 00:41:57 | +  84.8 min]   [GRU128x64_SIN] época 11: loss=0.0513 val_loss=0.0182 lr=1.0e-03
+[2026-06-11 00:47:31 | +  90.4 min]   [GRU128x64_SIN] época 16: loss=0.0182 val_loss=0.0162 lr=1.0e-03
+[2026-06-11 00:53:03 | +  95.9 min]   [GRU128x64_SIN] época 21: loss=0.0153 val_loss=0.0182 lr=1.0e-03
+[2026-06-11 00:58:34 | + 101.5 min]   [GRU128x64_SIN] época 26: loss=0.0151 val_loss=0.0180 lr=1.0e-03
+[2026-06-11 01:04:04 | + 107.0 min]   [GRU128x64_SIN] época 31: loss=0.0130 val_loss=0.0184 lr=5.0e-04
+[2026-06-11 01:09:35 | + 112.5 min]   [GRU128x64_SIN] época 36: loss=0.0122 val_loss=0.0183 lr=5.0e-04
+[2026-06-11 01:15:06 | + 118.0 min]   [GRU128x64_SIN] época 41: loss=0.0117 val_loss=0.0172 lr=5.0e-04
+[2026-06-11 01:20:35 | + 123.5 min]   [GRU128x64_SIN] época 46: loss=0.0116 val_loss=0.0188 lr=2.5e-04
+[2026-06-11 01:26:04 | + 129.0 min]   [GRU128x64_SIN] época 51: loss=0.0103 val_loss=0.0183 lr=2.5e-04
+[2026-06-11 01:31:32 | + 134.4 min]   [GRU128x64_SIN] época 56: loss=0.0101 val_loss=0.0187 lr=2.5e-04
+[2026-06-11 01:35:54 | + 138.8 min]   [GRU128x64_SIN] época 60: loss=0.0099 val_loss=0.0184 lr=2.5e-04
+[2026-06-11 01:35:56 | + 138.8 min]   ✔ GRU128x64_SIN: R2_total=0.9354 R2_abiertas=0.8879 | 60 épocas | 66.2 min
+[2026-06-11 01:35:56 | + 138.8 min] --- entrenando GRU192x96_CON | cfg={'rama': 'gru', 'capas_rnn': (192, 96), 'densas': (384, 192, 96), 'dropouts': (0.4, 0.3, 0.15), 'dim_emb_store': 48, 'usar_customers': True} ---
+[2026-06-11 01:37:49 | + 140.7 min]   [GRU192x96_CON] época 1: loss=1.1902 val_loss=0.0154 lr=1.0e-03
+[2026-06-11 01:47:02 | + 149.9 min]   [GRU192x96_CON] época 6: loss=0.1666 val_loss=0.0067 lr=1.0e-03
+[2026-06-11 01:56:15 | + 159.1 min]   [GRU192x96_CON] época 11: loss=0.0300 val_loss=0.0060 lr=1.0e-03
+[2026-06-11 02:05:25 | + 168.3 min]   [GRU192x96_CON] época 16: loss=0.0057 val_loss=0.0077 lr=1.0e-03
+[2026-06-11 02:14:37 | + 177.5 min]   [GRU192x96_CON] época 21: loss=0.0048 val_loss=0.0078 lr=1.0e-03
+[2026-06-11 02:23:47 | + 186.7 min]   [GRU192x96_CON] época 26: loss=0.0046 val_loss=0.0096 lr=1.0e-03
+[2026-06-11 02:32:58 | + 195.9 min]   [GRU192x96_CON] época 31: loss=0.0042 val_loss=0.0091 lr=5.0e-04
+[2026-06-11 02:42:08 | + 205.0 min]   [GRU192x96_CON] época 36: loss=0.0041 val_loss=0.0100 lr=5.0e-04
+[2026-06-11 02:51:16 | + 214.2 min]   [GRU192x96_CON] época 41: loss=0.0039 val_loss=0.0098 lr=5.0e-04
+[2026-06-11 03:00:25 | + 223.3 min]   [GRU192x96_CON] época 46: loss=0.0040 val_loss=0.0096 lr=2.5e-04
+[2026-06-11 03:09:32 | + 232.4 min]   [GRU192x96_CON] época 51: loss=0.0037 val_loss=0.0097 lr=2.5e-04
+[2026-06-11 03:18:41 | + 241.6 min]   [GRU192x96_CON] época 56: loss=0.0037 val_loss=0.0093 lr=2.5e-04
+[2026-06-11 03:25:57 | + 248.8 min]   [GRU192x96_CON] época 60: loss=0.0036 val_loss=0.0102 lr=2.5e-04
+[2026-06-11 03:25:59 | + 248.9 min]   ✔ GRU192x96_CON: R2_total=0.9767 R2_abiertas=0.9596 | 60 épocas | 110.1 min
+[2026-06-11 03:26:00 | + 248.9 min] --- entrenando GRU128_bidir_CON | cfg={'rama': 'gru', 'capas_rnn': (128,), 'bidireccional': True, 'dim_emb_store': 32, 'usar_customers': True} ---
+[2026-06-11 03:27:02 | + 249.9 min]   [GRU128_bidir_CON] época 1: loss=1.2488 val_loss=0.0605 lr=1.0e-03
+[2026-06-11 03:32:08 | + 255.0 min]   [GRU128_bidir_CON] época 6: loss=0.1461 val_loss=0.0067 lr=1.0e-03
+[2026-06-11 03:37:12 | + 260.1 min]   [GRU128_bidir_CON] época 11: loss=0.0357 val_loss=0.0055 lr=1.0e-03
+[2026-06-11 03:42:17 | + 265.2 min]   [GRU128_bidir_CON] época 16: loss=0.0061 val_loss=0.0062 lr=1.0e-03
+[2026-06-11 03:47:21 | + 270.2 min]   [GRU128_bidir_CON] época 21: loss=0.0049 val_loss=0.0056 lr=1.0e-03
+[2026-06-11 03:52:24 | + 275.3 min]   [GRU128_bidir_CON] época 26: loss=0.0044 val_loss=0.0063 lr=5.0e-04
+[2026-06-11 03:57:27 | + 280.3 min]   [GRU128_bidir_CON] época 31: loss=0.0041 val_loss=0.0064 lr=5.0e-04
+[2026-06-11 04:02:32 | + 285.4 min]   [GRU128_bidir_CON] época 36: loss=0.0041 val_loss=0.0070 lr=5.0e-04
+[2026-06-11 04:07:35 | + 290.5 min]   [GRU128_bidir_CON] época 41: loss=0.0040 val_loss=0.0064 lr=5.0e-04
+[2026-06-11 04:12:39 | + 295.5 min]   [GRU128_bidir_CON] época 46: loss=0.0038 val_loss=0.0066 lr=2.5e-04
+[2026-06-11 04:17:42 | + 300.6 min]   [GRU128_bidir_CON] época 51: loss=0.0037 val_loss=0.0065 lr=2.5e-04
+[2026-06-11 04:22:46 | + 305.7 min]   [GRU128_bidir_CON] época 56: loss=0.0037 val_loss=0.0062 lr=2.5e-04
+[2026-06-11 04:25:47 | + 308.7 min]   [GRU128_bidir_CON] época 59: loss=0.0036 val_loss=0.0064 lr=2.5e-04
+[2026-06-11 04:25:49 | + 308.7 min]   ✔ GRU128_bidir_CON: R2_total=0.9785 R2_abiertas=0.9627 | 59 épocas | 59.8 min
+[2026-06-11 04:25:49 | + 308.7 min] --- entrenando LSTM128x64_CON | cfg={'rama': 'lstm', 'capas_rnn': (128, 64), 'dim_emb_store': 32, 'usar_customers': True} ---
+[2026-06-11 04:26:58 | + 309.9 min]   [LSTM128x64_CON] época 1: loss=1.3243 val_loss=0.0861 lr=1.0e-03
+[2026-06-11 04:32:33 | + 315.4 min]   [LSTM128x64_CON] época 6: loss=0.1606 val_loss=0.0081 lr=1.0e-03
+[2026-06-11 04:38:07 | + 321.0 min]   [LSTM128x64_CON] época 11: loss=0.0316 val_loss=0.0072 lr=1.0e-03
+[2026-06-11 04:43:39 | + 326.6 min]   [LSTM128x64_CON] época 16: loss=0.0057 val_loss=0.0074 lr=1.0e-03
+[2026-06-11 04:49:12 | + 332.1 min]   [LSTM128x64_CON] época 21: loss=0.0048 val_loss=0.0080 lr=1.0e-03
+[2026-06-11 04:54:44 | + 337.6 min]   [LSTM128x64_CON] época 26: loss=0.0044 val_loss=0.0094 lr=1.0e-03
+[2026-06-11 05:00:16 | + 343.2 min]   [LSTM128x64_CON] época 31: loss=0.0041 val_loss=0.0093 lr=5.0e-04
+[2026-06-11 05:05:48 | + 348.7 min]   [LSTM128x64_CON] época 36: loss=0.0040 val_loss=0.0090 lr=5.0e-04
+[2026-06-11 05:11:21 | + 354.2 min]   [LSTM128x64_CON] época 41: loss=0.0039 val_loss=0.0092 lr=5.0e-04
+[2026-06-11 05:16:54 | + 359.8 min]   [LSTM128x64_CON] época 46: loss=0.0039 val_loss=0.0102 lr=2.5e-04
+[2026-06-11 05:22:26 | + 365.3 min]   [LSTM128x64_CON] época 51: loss=0.0037 val_loss=0.0087 lr=2.5e-04
+[2026-06-11 05:27:59 | + 370.9 min]   [LSTM128x64_CON] época 56: loss=0.0037 val_loss=0.0093 lr=2.5e-04
+[2026-06-11 05:32:24 | + 375.3 min]   [LSTM128x64_CON] época 60: loss=0.0037 val_loss=0.0093 lr=2.5e-04
+[2026-06-11 05:32:26 | + 375.3 min]   ✔ LSTM128x64_CON: R2_total=0.9785 R2_abiertas=0.9627 | 60 épocas | 66.6 min
+[2026-06-11 05:32:26 | + 375.3 min] --- entrenando GRU96x48_SIN | cfg={'rama': 'gru', 'capas_rnn': (96, 48), 'densas': (192, 96), 'dropouts': (0.3, 0.2), 'dim_emb_store': 24, 'usar_customers': False} ---
+[2026-06-11 05:33:16 | + 376.2 min]   [GRU96x48_SIN] época 1: loss=1.1895 val_loss=0.0378 lr=1.0e-03
+[2026-06-11 05:37:14 | + 380.1 min]   [GRU96x48_SIN] época 6: loss=0.2091 val_loss=0.0287 lr=1.0e-03
+[2026-06-11 05:41:11 | + 384.1 min]   [GRU96x48_SIN] época 11: loss=0.0526 val_loss=0.0191 lr=1.0e-03
+[2026-06-11 05:45:08 | + 388.0 min]   [GRU96x48_SIN] época 16: loss=0.0179 val_loss=0.0218 lr=1.0e-03
+[2026-06-11 05:49:06 | + 392.0 min]   [GRU96x48_SIN] época 21: loss=0.0158 val_loss=0.0221 lr=1.0e-03
+[2026-06-11 05:53:03 | + 395.9 min]   [GRU96x48_SIN] época 26: loss=0.0141 val_loss=0.0219 lr=5.0e-04
+[2026-06-11 05:57:00 | + 399.9 min]   [GRU96x48_SIN] época 31: loss=0.0135 val_loss=0.0211 lr=5.0e-04
+[2026-06-11 06:00:57 | + 403.8 min]   [GRU96x48_SIN] época 36: loss=0.0128 val_loss=0.0221 lr=5.0e-04
+[2026-06-11 06:04:55 | + 407.8 min]   [GRU96x48_SIN] época 41: loss=0.0124 val_loss=0.0180 lr=5.0e-04
+[2026-06-11 06:08:52 | + 411.8 min]   [GRU96x48_SIN] época 46: loss=0.0120 val_loss=0.0201 lr=5.0e-04
+[2026-06-11 06:12:50 | + 415.7 min]   [GRU96x48_SIN] época 51: loss=0.0115 val_loss=0.0197 lr=5.0e-04
+[2026-06-11 06:16:48 | + 419.7 min]   [GRU96x48_SIN] época 56: loss=0.0118 val_loss=0.0208 lr=5.0e-04
+[2026-06-11 06:20:45 | + 423.6 min]   [GRU96x48_SIN] época 61: loss=0.0107 val_loss=0.0208 lr=2.5e-04
+[2026-06-11 06:24:43 | + 427.6 min]   [GRU96x48_SIN] época 66: loss=0.0105 val_loss=0.0202 lr=2.5e-04
+[2026-06-11 06:28:40 | + 431.6 min]   [GRU96x48_SIN] época 71: loss=0.0103 val_loss=0.0201 lr=2.5e-04
+[2026-06-11 06:32:37 | + 435.5 min]   [GRU96x48_SIN] época 76: loss=0.0101 val_loss=0.0198 lr=2.5e-04
+[2026-06-11 06:36:34 | + 439.5 min]   [GRU96x48_SIN] época 81: loss=0.0097 val_loss=0.0200 lr=1.3e-04
+[2026-06-11 06:40:31 | + 443.4 min]   [GRU96x48_SIN] época 86: loss=0.0095 val_loss=0.0196 lr=1.3e-04
+[2026-06-11 06:44:34 | + 447.5 min]   [GRU96x48_SIN] época 91: loss=0.0094 val_loss=0.0199 lr=1.3e-04
+[2026-06-11 06:44:35 | + 447.5 min]   ✔ GRU96x48_SIN: R2_total=0.9361 R2_abiertas=0.8892 | 91 épocas | 72.1 min
+[2026-06-11 06:44:35 | + 447.5 min] === RESULTADOS FINALES ===
+    arquitectura  usar_customers  R2_total  R2_abiertas       RMSE        MAE  epocas  minutos
+   GRU128x64_CON            True  0.980513     0.966187 519.199745 331.370667      60     72.5
+  LSTM128x64_CON            True  0.978532     0.962749 544.957596 340.700287      60     66.6
+GRU128_bidir_CON            True  0.978532     0.962749 544.958341 333.219147      59     59.8
+   GRU192x96_CON            True  0.976696     0.959564 567.778126 335.976227      60    110.1
+    GRU96x48_SIN           False  0.936122     0.889162 940.026595 590.801208      91     72.1
+   GRU128x64_SIN           False  0.935382     0.887878 945.454355 574.225830      60     66.2
+[2026-06-11 06:44:35 | + 447.5 min] mejor global: GRU128x64_CON (R2=0.9805)
+[2026-06-11 06:44:35 | + 447.5 min] === FIN en 7.46 h ===

@@ -26,3 +26,16 @@ env/
 Thumbs.db
 .vscode/
 .idea/
+
+# Entorno virtual del proyecto (1,8 GB — nunca versionar)
+Entradas_heterogeneas_venv/
+*_venv/
+
+# Modelos entrenados pesados: se ignoran todos, salvo el modelo final de entrega
+*.keras
+*.h5
+!mejor_modelo.keras
+
+# Logs de ejecución (redundantes con los resultados guardados)
+stdout.log
+entrenamiento_nocturno/stdout.log
