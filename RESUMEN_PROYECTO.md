@@ -1,7 +1,10 @@
 # Resumen del proyecto — Práctica B3-T5 · Entradas heterogéneas (Rossmann)
 
 > Bitácora completa de los pasos dados en el proyecto: el trabajo del grupo (commits en `main`)
-> y el trabajo de la sesión de desarrollo del modelo. Última actualización: **11-jun-2026**.
+> y el trabajo de la sesión de desarrollo del modelo. Última actualización: **12-jun-2026**.
+>
+> **✅ ENTREGABLE: `entradas_heterogeneas.ipynb` (en `main`, commit `881923b`+)** — un único notebook
+> con las secciones 1–7 del grupo y las secciones 8–14 del modelo. R² final: **0,981**.
 
 ---
 
@@ -56,9 +59,11 @@ trabajo nuevo vive en ficheros independientes.
 - Este trabajo se respaldó y el notebook del grupo se **restauró al estado de `main`**.
 
 ### 3.4 Modelo final optimizado
-- Notebook nuevo y autónomo: **`modelo_final_entradas_heterogeneas.ipynb`**.
+- Se desarrolló primero en un notebook autónomo (`modelo_final_entradas_heterogeneas.ipynb`) y,
+  tras validarlo, se **integró en el notebook del grupo** manteniendo su estructura (el notebook
+  autónomo se eliminó por redundante el 11-jun).
 - Corrige el diagnóstico anterior y añade todas las decisiones de diseño (sección 5).
-- Productos generados: **`submission_final.csv`** y **`modelo_final_emilio.keras`**.
+- Productos generados: **`submission_final.csv`** y **`mejor_modelo.keras`**.
 
 ### 3.5 Barrido nocturno de arquitecturas
 - Script `entrenamiento_nocturno.py`: entrenamiento largo desatendido (~7,5 h, con `caffeinate`) de
@@ -161,28 +166,33 @@ Barrido nocturno desatendido de **6 arquitecturas grandes** con callbacks genero
 
 | Archivo | Contenido | Estado |
 |---------|-----------|--------|
-| `entradas_heterogeneas.ipynb` | Notebook del grupo (secciones 1–7) | **Intacto, igual que `main`** |
-| `exploración_dataset.ipynb` | EDA propio (Emilio) | Sin commitear |
-| `modelo_final_entradas_heterogeneas.ipynb` | **Modelo final completo, ejecutado** | Sin commitear |
-| `submission_final.csv` | Predicción del modelo final (R² 0,967) | Generado |
-| `modelo_final_emilio.keras` | Modelo del notebook (R² 0,967) | Generado |
-| `entrenamiento_nocturno.py` | Script del barrido de 6 arquitecturas | Sin commitear |
-| `entrenamiento_nocturno/` | Resultados del barrido: 6 `.keras` + curvas + `resultados_nocturno.csv` + log | Generado |
-| `entrenamiento_nocturno/submission_nocturno_max.csv` | **Predicción de la mejor red (R² 0,9805)** → candidata a entrega | Generado |
-| `entrenamiento_nocturno/submission_nocturno_realista.csv` | Predicción de la mejor red sin Customers (R² 0,9361) | Generado |
-| `RESUMEN_PROYECTO.md` | Este documento | — |
+| **`entradas_heterogeneas.ipynb`** | **EL ENTREGABLE**: secciones 1–7 del grupo + 8–14 del modelo (97 celdas, ejecutado, R² 0,981) | **En `main` y `desarrollo_emilio`** |
+| `exploración_dataset.ipynb` | EDA propio (Emilio), material de apoyo | Commiteado |
+| `submission_final.csv` | Predicción del modelo final (R² 0,981) | Commiteado |
+| `mejor_modelo.keras` | Modelo final entrenado (GRU 128+64) | Commiteado |
+| `entrenamiento_nocturno.py` | Script del barrido de 6 arquitecturas | Commiteado |
+| `entrenamiento_nocturno/` | Resultados del barrido: curvas + `resultados_nocturno.csv` + submissions (los 6 `.keras` quedan fuera de git) | Parcialmente commiteado |
+| `RESUMEN_PROYECTO.md` | Este documento | Commiteado |
+| ~~`modelo_final_entradas_heterogeneas.ipynb`~~ | Notebook intermedio | **Eliminado** (integrado en el entregable) |
+
+> Nota: el dataset (`dataset_completo_Rossmann.../`) y los PDFs dejaron de estar trackeados en git
+> (commit `1d083be`). **Al hacer `git pull` de `main`, git los elimina del disco** — hay que
+> restaurarlos del historial (`git restore --source=9cb292a -- <ruta>`) o re-descargarlos del Drive.
+> El notebook entregable no los necesita para consultarse (tiene los outputs embebidos).
 
 ---
 
 ## 8. Pendientes / a coordinar con el grupo
 
-- [ ] **Decidir el entregable:** ¿se entrega `modelo_final_entradas_heterogeneas.ipynb` o se fusiona
-      con el notebook del grupo? El enunciado pide **un solo** `.ipynb`.
-- [ ] **Aclarar con el profesorado qué son "las 10 tiendas"** del criterio de evaluación
-      (el `test.csv` trae 1.115).
-- [ ] Avisar a la compañera de que su "GRU a medias" nunca llegó al repo.
-- [ ] **Integrar la mejor red del barrido (GRU 128+64, R² 0,9805) en el notebook final** y usar
-      `submission_nocturno_max.csv` como entrega.
-- [ ] Revisión final conjunta: nombres del grupo, reflexión y limpieza de salidas.
+- [x] ~~Decidir el entregable~~ → **integrado en `entradas_heterogeneas.ipynb`** manteniendo la
+      estructura del grupo (secciones 1–7) + modelado (8–14). Fusionado a `main` el 11-jun.
+- [x] ~~Integrar la mejor red del barrido (GRU 128+64)~~ → hecha y re-entrenada en el notebook
+      final (R² 0,981 con Customers / 0,937 sin).
 - [x] ~~Búsqueda de arquitecturas / entrenamiento largo~~ → hecho en la Fase C (barrido nocturno).
+- [x] ~~Revisión final~~ → repaso completo el 12-jun: 50/50 celdas ejecutadas en orden, 0 errores,
+      submission validado (formato, Ids, ceros en cerradas), fechas del CSV invertidas pero
+      corregidas por `sort_values` (sin fuga temporal).
+- [ ] **Aclarar con el profesorado qué son "las 10 tiendas"** del criterio de evaluación
+      (el `test.csv` trae 1.115 y sin etiquetas; nuestro R² se mide en validación temporal interna).
+- [ ] Subir `entradas_heterogeneas.ipynb` al aula virtual antes del **13-jun**.
 - [ ] (Opcional) *Ensemble* de las 3 mejores variantes y modelo en dos etapas (clientes → ventas).
